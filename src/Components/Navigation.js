@@ -1,23 +1,17 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import React from 'react';
 import {
     BrowserRouter,
     Routes,
     Route,
     Link
 } from "react-router-dom";
-import Header from "./Components/Header";
-import {LinkButton} from "./Components/LinkButton";
-import {ShopList} from "./Components/ShopList";
-import {ShopListHistory} from "./Components/ShopListHistory";
+import {LinkButton} from "./LinkButton";
+import {ShopList} from "./ShopList";
+import {ShopListHistory} from "./ShopListHistory";
 
-
-function App() {
-  return (
-    <div className="App">
-      <Header />
-        <div className="container flex-column flex-lg-row col-12 col-lg-6">
+export function Navigation(props) {
+    return (
+        <div className="container">
             <BrowserRouter>
                 <Link to="/shopList">
                     <LinkButton
@@ -37,9 +31,6 @@ function App() {
                 </Routes>
             </BrowserRouter>
         </div>
-
-    </div>
-  );
+    );
 }
 
-export default App;
