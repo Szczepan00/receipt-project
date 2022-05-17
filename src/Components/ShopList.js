@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {InputForm} from "./InputForm";
 import {Product} from "./Product";
-import {ProductList} from "./ProductList";
+import {ProductsList} from "./ProductsList";
 
 export function ShopList() {
     const [product, setProduct] = useState({
@@ -17,7 +17,6 @@ export function ShopList() {
         isActive: false,
     });
 
-    const showProduct = allProducts.map((item, index) => <Product key={index} name={item.name} price={item.sum}/>)
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -80,12 +79,21 @@ export function ShopList() {
             })
         }
         console.log(Boolean(allProducts))
+    };
+
+    const removeProduct = (index) => {
+        const arr = allProducts.filter(item => item !== allProducts[index]);
+        setTotalCost(prevState => prevState - allProducts[index].sum);
+        setAllProducts(arr);
+
+
 
     }
+    const showProduct = allProducts.map((item, index) => <Product key={index} name={item.name} price={item.sum} i={index} remove={removeProduct} />)
 
     return (
         <main>
-            <div className="container">
+            <div className="p-2">
                 <form className="border border-3 rounded bg-light d-flex flex-column " onSubmit={addProduct}>
                     <InputForm
                         title="Nazwa produktu"
@@ -120,7 +128,7 @@ export function ShopList() {
                     </button>
                 </form>
 
-                {allProducts.length ? <ProductList item={showProduct} cost={totalCost}/> : null }
+                {allProducts.length ? <ProductsList item={showProduct} cost={totalCost} /> : null }
 
 
             </div>

@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-        <div className="container flex-column flex-lg-row col-12 col-lg-6">
+        <div className="container flex-column  col-12 col-lg-5">
             <BrowserRouter>
                 <Link to="/shopList">
                     <LinkButton

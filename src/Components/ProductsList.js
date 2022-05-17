@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function ProductList({item, cost}) {
+export function ProductsList({item, cost}) {
     return (
         <div className="mt-4">
-            <h2 className="p-3">Twoje zakupy:</h2>
+            <h2 className="pb-2">Twoje zakupy:</h2>
             <ul className="list-group">
                 {item}
                 <span className="text-end p-3 fs-3 fw-bold">Suma: {cost.toFixed(2)}</span>
