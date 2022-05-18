@@ -25,7 +25,7 @@ export function ShopList() {
                 return {
                     ...prevState,
                     [name]: value,
-                    sum: value * (name === 'price' ? prevState.quantity : prevState.price),
+                    sum: value * (name === 'price' ? prevState.quantity : prevState.price) //toFixed(2),
                 }
             });
         }else {
@@ -128,7 +128,7 @@ export function ShopList() {
                     </button>
                 </form>
 
-                {allProducts.length ? <ProductsList item={showProduct} cost={totalCost} /> : null }
+                {allProducts.length ? <ProductsList item={showProduct} cost={totalCost} basket={allProducts}/> : null }
 
 
             </div>

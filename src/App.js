@@ -12,8 +12,31 @@ import {LinkButton} from "./Components/LinkButton";
 import {ShopList} from "./Components/ShopList";
 import {ShopListHistory} from "./Components/ShopListHistory";
 
+import { collection, getDocs, doc, setDoc } from 'firebase/firestore/lite';
+import {useEffect, useState} from "react";
+import db from './firebase'
+
+// Get a list of cities from your database
+async function getData() {
+    const dataCol = collection(db, 'bills');
+    const dataSnapshot = await getDocs(dataCol);
+    const dataList = dataSnapshot.docs.map(doc => doc.data());
+    console.log(dataList)
+    return dataList;
+}
+
+
+
+
+console.log('hello firestore')
+
 
 function App() {
+    const [showReceipt, setReceipt] = useState([]);
+
+    useEffect(() => {
+        getData();
+    }, [])
   return (
     <div className="App">
       <Header />
@@ -33,7 +56,7 @@ function App() {
                 </Link>
                 <Routes>
                     <Route path="/shopList" element={<ShopList />} />
-                    <Route path="/shopListHistory" element={<ShopListHistory />}/>
+                    <Route path="/shopListHistory" element={<ShopListHistory data={showReceipt}/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
