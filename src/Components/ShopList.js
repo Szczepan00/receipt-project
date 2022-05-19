@@ -17,7 +17,6 @@ export function ShopList() {
         isActive: false,
     });
 
-
     const handleChange = (e) => {
         const {name, value} = e.target;
         if(name === 'price' || name === 'quantity'){
@@ -85,16 +84,13 @@ export function ShopList() {
         const arr = allProducts.filter(item => item !== allProducts[index]);
         setTotalCost(prevState => prevState - allProducts[index].sum);
         setAllProducts(arr);
-
-
-
     }
     const showProduct = allProducts.map((item, index) => <Product key={index} name={item.name} price={item.sum} i={index} remove={removeProduct} />)
 
     return (
         <main>
             <div className="p-2">
-                <form className="border border-3 rounded bg-light d-flex flex-column " onSubmit={addProduct}>
+                <form className="d-flex flex-column border border-3 rounded bg-light" onSubmit={addProduct}>
                     <InputForm
                         title="Nazwa produktu"
                         name="name"
@@ -109,7 +105,6 @@ export function ShopList() {
                         type="number"
                         value={product.price ? product.price : ''}
                         change={handleChange}
-                        // minValue={0}
                         deafultText="Wpisz cenę produktu..."
                     />
                     <InputForm
@@ -127,10 +122,7 @@ export function ShopList() {
                         Dodaj produkt
                     </button>
                 </form>
-
-                {allProducts.length ? <ProductsList item={showProduct} cost={totalCost} basket={allProducts}/> : null }
-
-
+                {allProducts.length ? <ProductsList item={showProduct} cost={totalCost} basket={allProducts} resetAllProducts={setAllProducts} resetTotalCost={setTotalCost}/> : null }
             </div>
         </main>
     );

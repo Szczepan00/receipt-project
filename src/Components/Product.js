@@ -3,7 +3,7 @@ import React from 'react';
 export function Product({name, price, remove, i}) {
     return (
         <div>
-            <li className="list-group-item d-flex justify-content-between align-items-center p-3 ">
+            <li className="d-flex justify-content-between align-items-center list-group-item p-3 ">
                 <button className="bg-transparent border-0" onClick={() => remove(i)}>
                     <i className="bi bi-trash-fill fs-2"></i>
                 </button>

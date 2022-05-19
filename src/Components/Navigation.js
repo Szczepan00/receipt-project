@@ -9,9 +9,10 @@ import {LinkButton} from "./LinkButton";
 import {ShopList} from "./ShopList";
 import {ShopListHistory} from "./ShopListHistory";
 
-export function Navigation(props) {
+
+export function Navigation({data}) {
     return (
-        <div className="container">
+        <div className="container flex-column  col-12 col-lg-5">
             <BrowserRouter>
                 <Link to="/shopList">
                     <LinkButton
@@ -27,7 +28,7 @@ export function Navigation(props) {
                 </Link>
                 <Routes>
                     <Route path="/shopList" element={<ShopList />} />
-                    <Route path="/shopListHistory" element={<ShopListHistory />}/>
+                    <Route path="/shopListHistory" element={<ShopListHistory data={data}/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
