@@ -43,7 +43,7 @@ export function ShowHistoryBasket({dane}) {
     return (
         <>
             {dane.length ? show: <h2>Brak historii zakupów</h2>}
-            {dane.length ? <BtnRefresh />: null}
+            <BtnRefresh />
         </>
     );
 }
