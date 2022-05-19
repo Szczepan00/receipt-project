@@ -13,7 +13,7 @@ export function ProductsList({item, cost, basket, resetAllProducts, resetTotalCo
     const charsNumber = 20;
 
     const saveData = async () => {
-        const codeGenerator = () => {
+        const idGenerator = () => {
             let code = '';
             for (let i = 0; i < charsNumber; i++) {
                 const index = Math.floor(Math.random() * chars.length);
@@ -21,7 +21,7 @@ export function ProductsList({item, cost, basket, resetAllProducts, resetTotalCo
             }
             return code;
         }
-        await setDoc(doc(db, "bills", codeGenerator()), {basket, day, hours, minutes, cost});
+        await setDoc(doc(db, "bills", idGenerator()), {basket, day, hours, minutes, cost});
         resetAllProducts([]);
         resetTotalCost(0);
     }

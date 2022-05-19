@@ -26,15 +26,12 @@ export function App() {
         getData(db).then(value => setData(value));
     }, []);
 
-    const refresh = () => {
-        window.location.reload();
-    }
+
 
   return (
     <div className="App">
       <Header />
         <Navigation  data={data}/>
-        <button className="" onClick={refresh}>Odśwież koszyk</button>
     </div>
   );
 }
