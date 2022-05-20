@@ -1,13 +1,13 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import Header from "./Components/Header";
+import {Header} from "./Components/Header/Header";
 
 
-import { collection, getDocs, doc, setDoc } from 'firebase/firestore/lite';
+import { collection, getDocs } from 'firebase/firestore/lite';
 import {useEffect, useState} from "react";
 import db from './firebase'
-import {Navigation} from "./Components/Navigation";
+import {Navigation} from "./Components/Navigation/Navigation";
 
 
 export function App() {
@@ -18,7 +18,6 @@ export function App() {
         const dataCol = collection(db, 'bills');
         const dataSnapshot = await getDocs(dataCol);
         const dataList = dataSnapshot.docs.map(doc => doc.data());
-        // console.log('dataCol', dataCol)
         return dataList;
     }
 
@@ -26,11 +25,9 @@ export function App() {
         getData(db).then(value => setData(value));
     }, []);
 
-
-
   return (
     <div className="App">
-      <Header />
+        <Header />
         <Navigation  data={data}/>
     </div>
   );

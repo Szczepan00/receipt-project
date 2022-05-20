@@ -1,7 +1,7 @@
 import React from 'react';
 import {BtnRefresh} from "./BtnRefresh";
 
-export function ShowHistoryBasket({dane}) {
+export function ShowHistoryShopping({dane}) {
     const chars = 'QWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnm';
     const charsNumber = 10;
 
@@ -30,7 +30,7 @@ export function ShowHistoryBasket({dane}) {
                 {item.basket.map((item) =>
                     <li className="list-group-item d-flex justify-content-between align-items-center p-3 " key={idGenerator()}>
                         <span className="ms-3 fs-4 fw-bolder">{item.name}</span>
-                        <span className="fw-bold fs-4">{item.sum}</span>
+                        <span className="fw-bold fs-4">{item.sum.toFixed(2)}</span>
                     </li>
                 )}
                 <li className=" list-group-item text-end p-3 fs-3 fw-bold">

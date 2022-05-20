@@ -1,13 +1,13 @@
 import React from 'react';
-import {ShowHistoryBasket} from "./ShowHistoryBasket";
+import {ShowHistoryShopping} from "./ShowHistoryShopping";
 
-export function ShopListHistory({data}) {
+export function ShopHistory({data}) {
 
 
     return (
         <main className="container p-2">
             <h2 className=" mb-3">Historia zakupów: </h2>
-            <ShowHistoryBasket dane={data}/>
+            <ShowHistoryShopping dane={data}/>
         </main>
     );
 }

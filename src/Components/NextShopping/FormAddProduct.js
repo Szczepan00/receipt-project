@@ -3,7 +3,7 @@ import {InputForm} from "./InputForm";
 import {Product} from "./Product";
 import {ProductsList} from "./ProductsList";
 
-export function ShopList() {
+export function FormAddProduct() {
     const [product, setProduct] = useState({
         name: '',
         price: 0,
@@ -85,7 +85,7 @@ export function ShopList() {
         setTotalCost(prevState => prevState - allProducts[index].sum);
         setAllProducts(arr);
     }
-    const showProduct = allProducts.map((item, index) => <Product key={index} name={item.name} price={item.sum} i={index} remove={removeProduct} />)
+    const showProduct = allProducts.map((item, index) => <Product key={index} name={item.name} price={item.sum} index={index} remove={removeProduct} />)
 
     return (
         <main>

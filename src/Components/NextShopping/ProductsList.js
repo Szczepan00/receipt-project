@@ -1,18 +1,18 @@
-import React, {useState} from 'react';
-import db from '../firebase'
+import db from '../../firebase'
 import {doc, setDoc} from "firebase/firestore/lite";
 
 export function ProductsList({item, cost, basket, resetAllProducts, resetTotalCost}) {
-
-   const [date, setDate]  = useState(new Date());
-    const day = date.toLocaleDateString();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
 
     const chars = 'QWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnm';
     const charsNumber = 20;
 
     const saveData = async () => {
+
+        const date  = new Date();
+        const day = date.toLocaleDateString();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+
         const idGenerator = () => {
             let code = '';
             for (let i = 0; i < charsNumber; i++) {
@@ -25,11 +25,6 @@ export function ProductsList({item, cost, basket, resetAllProducts, resetTotalCo
         resetAllProducts([]);
         resetTotalCost(0);
     }
-
-    // const saveData = async () => {
-    //
-    //     await setDoc(doc(db, "bills", "produkty"), {basket, day, time});
-    // }
 
     return (
         <div className="mt-4">

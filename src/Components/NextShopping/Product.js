@@ -1,10 +1,10 @@
 import React from 'react';
 
-export function Product({name, price, remove, i}) {
+export function Product({name, price, remove, index}) {
     return (
         <div>
             <li className="d-flex justify-content-between align-items-center list-group-item p-3 ">
-                <button className="bg-transparent border-0" onClick={() => remove(i)}>
+                <button className="bg-transparent border-0" onClick={() => remove(index)}>
                     <i className="bi bi-trash-fill fs-2"></i>
                 </button>
                 <span className="flex-grow-1 ms-3 fs-4">{name}</span>

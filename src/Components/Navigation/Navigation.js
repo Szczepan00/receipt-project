@@ -6,8 +6,8 @@ import {
     Link
 } from "react-router-dom";
 import {LinkButton} from "./LinkButton";
-import {ShopList} from "./ShopList";
-import {ShopListHistory} from "./ShopListHistory";
+import {FormAddProduct} from "../NextShopping/FormAddProduct";
+import {ShopHistory} from "../History/ShopHistory";
 
 
 export function Navigation({data}) {
@@ -27,8 +27,8 @@ export function Navigation({data}) {
                     />
                 </Link>
                 <Routes>
-                    <Route path="/shopList" element={<ShopList />} />
-                    <Route path="/shopListHistory" element={<ShopListHistory data={data}/>}/>
+                    <Route path="/shopList" element={<FormAddProduct />} />
+                    <Route path="/shopListHistory" element={<ShopHistory data={data}/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
