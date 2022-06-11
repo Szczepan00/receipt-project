@@ -1,6 +1,6 @@
 # Receipt project 
 
-## In this project I used: 
+In this project I used: 
  -React
  -Bootstrap
  -Firebase database
